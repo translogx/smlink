@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from api.views import shortenlink, reallink
+
+from django.views.decorators.csrf import csrf_exempt
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+   # path('', home_view.HomeView.as_view(), name='home'),
+    path('shortenlink', csrf_exempt(shortenlink.ShortenLink.as_view()), name='shortenlink'),
+    path('getlink/<urlref>', reallink.RealLink.as_view(), name='reallink')
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

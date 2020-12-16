@@ -25,13 +25,13 @@ SECRET_KEY = 'f&r6te9*s6h31stdmgox9thwyjpp=ub1iy2_%em^-qj1_r+12)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0','localhost','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'smlinkapp.apps.SmlinkappConfig'
+    'api.apps.ApiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -74,12 +74,19 @@ WSGI_APPLICATION = 'smlink.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+       'default': {
+           'ENGINE': 'djongo',
+           'NAME': 'smlinkdb',
+       }
+   }
 
 
 # Password validation
