@@ -83,8 +83,9 @@ WSGI_APPLICATION = 'smlink.wsgi.application'
 
 DATABASES = {
        'default': {
-           'ENGINE': 'djongo',
-           'NAME': 'smlinkdb',
+            'ENGINE': 'djongo',
+            'NAME': 'smlinkdb',
+            'ENFORCE_SCHEMA': False,
        }
    }
 
